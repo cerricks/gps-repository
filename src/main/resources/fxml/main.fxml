@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.cerricks.gps.MainController">
+  <top>
+    <MenuBar BorderPane.alignment="CENTER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#process" text="Open..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#showAboutDialog" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
+  <center>
+    <TextArea fx:id="outputTextArea" editable="false" />
+  </center>
+  <bottom>
+    <VBox BorderPane.alignment="CENTER_RIGHT">
+      <BorderPane.margin>
+        <Insets />
+      </BorderPane.margin>
+      <children>
+        <HBox>
+          <children>
+            <ButtonBar prefHeight="50.0">
+              <buttons>
+                <Button fx:id="btnReset" focusTraversable="false" mnemonicParsing="false" onAction="#reset" text="Clear" />
+              </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="125.0" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+              <buttons>
+                <Button fx:id="btnCancelProcess" cancelButton="true" disable="true" focusTraversable="false" mnemonicParsing="false" text="Cancel" />
+                <Button fx:id="btnProcess" defaultButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#process" text="Open File" />
+              </buttons>
+            </ButtonBar>
+          </children>
+          <padding>
+            <Insets right="10.0" />
+          </padding>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-background-color: #eee;">
+          <children>
+            <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+          </padding>
+        </HBox>
+      </children>
+    </VBox>
+  </bottom>
+</BorderPane>
